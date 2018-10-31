@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse " role="navigation">
+        <div class="container">
+            <div class="row" style="margin-left: 0px!important; margin-right: 0px!important;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">OnineTicaret</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index">Contact Us</a></li>
+
+                        @await Component.InvokeAsync("CategoryMenu")
+                        <li class="btn btn-success loginFormElement" style="padding-top: 0px; padding-bottom: 0px; background-color: #73a839;background-image: none; ">
+                            <a asp-controller="AddProduct" asp-action="Index" style="color: #ffffff;
+    background-color: #73a839;      ">Add Product</a>
+                        </li>
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+                    @await Html.PartialAsync("LoginPartial")
+
+                    <form class="navbar-form navbar-right" asp-controller="Home" asp-action="Search" method="get">
+                        <div class="form-group">
+                            <input type="text" name="Name" class="form-control" placeholder="Search for a product"   value="">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content"> </div>
+    <div class="row" style="margin-left: 0px!important; margin-right: 0px!important;">
+        @RenderBody()
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small unique-color-dark" style="margin-top: 400px;">
+        <div class="fluid" style="background-color: #1c2331!important;">
+            <div class="fluid" style="background:blue;padding-left: 0px!important;
+                     padding-right: 0px!important;">
+                <div class="container">     
+                    <div class="row  py-4 d-flex align-items-center" style=" padding-bottom: 1.5rem!important; padding-top: 1.5rem!important;margin-left: 0px!important; margin-right: 0px!important;">      
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0" style="text-align: left!important;">
+                            <h6 style="color:#fff;" class="mb-0">Get connected with us on social networks!</h6>
+                        </div>                       
+                        <div class="col-md-6 col-lg-7 text-center text-md-right " style="text-align: right!important;     margin-top:6px;">
+                            <!-- Facebook -->
+                            <a style="color:#fff;" class="fb-ic"href="https://www.facebook.com">
+                                <i class="fab fa-facebook-f" style="margin-right: 1.5rem!important;"></i>
+                            </a>
+                            <!-- Twitter -->
+                            <a style="color:#fff;" class="tw-ic"href="https://twitter.com">
+                                <i class="fab fa-twitter" style="margin-right: 1.5rem!important;"></i>
+                            </a>
+                            <!-- Google +-->
+                            <a style="color:#fff;" class="gplus-ic"href="https://plus.google.com/discover">
+                                <i class="fab fa-google-plus-g" style="margin-right: 1.5rem!important;"></i>
+                            </a>
+                            <!--Linkedin -->
+                            <a style="color:#fff;" class="li-ic"href="https://www.linkedin.com/">
+                                <i class="fab fa-linkedin-in" style="margin-right: 1.5rem!important;"></i>
+                            </a>
+                            <!--Instagram-->
+                            <a style="color:#fff;" class="ins-ic"href="https://www.instagram.com/">
+                                <i class="fab fa-instagram" style="margin-right: 1.5rem!important;"></i>
+                            </a>
+                        </div>                       
+                    </div>                  
+                </div>
+            </div>
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase font-weight-bold" style="color:white">OnlineTicaret</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color:blue!important">
+                        <p style="color:white">
+                            Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                       <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold" style="color:white">Məlumatlar</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p style="color:white">
+                            <a asp-controller="Agreement" asp-action="Index">İstifadəçi razılaşması</a>
+                        </p>
+                        <p style="color:white">
+                            <a asp-controller="Rule" asp-action="Index">  Qaydalar</a>
+                        </p>
+                        <p style="color:white">
+                            Reklam yerləşdirmək
+                        </p>
+                        <p style="color:white">
+                            Mobil versiyası
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold" style="color:white">Contact</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p style="color:white">
+                            <i class="fa fa-home mr-3"></i> Baku, Az 1000, AZ
+                        </p>
+                        <p style="color:white">
+                            <i class="fa fa-envelope mr-3"></i> info@example.com
+                        </p>
+                        <p style="color:white">
+                            <i class="fa fa-phone mr-3"></i> + 994500000000
+                        </p>
+                        <p style="color:white">
+                            <i class="fa fa-print mr-3"></i> + 994120000000
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3" style=" padding-bottom: 1.5rem!important; padding-top: 1.5rem!important; background-color:black">
+                © 2018 Copyright:
+                <a href="https://localhost:44399/" style="color:white;"> OnlineTicaret</a>
+            </div>
+            <!-- Copyright -->
+        </div>
+    </footer>
+    <!-- Footer -->
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @RenderSection("script",false)
+</body>
+</html>

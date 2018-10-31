@@ -1,0 +1,37 @@
+﻿@using OnlineTicaret.Data.Models;
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Approved</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Approved</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

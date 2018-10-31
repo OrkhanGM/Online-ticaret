@@ -1,0 +1,49 @@
+﻿@model OnlineTicaret.Data.Models.Product
+
+@{
+    ViewData["Title"] = "BigSize";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+  <div class="row">
+    <h2 style="margin-left:10px;">BigSize</h2>
+      <div class="col-sm-4 col-lg-4 col-md-4" style="height:530px;">
+        <div class="thumbnaill" style="width: 1100px;">
+           <img src="@Model.ImageThumbnailUrl"  alt="img" style="height:500px;width:500px;"/ >
+             <div class="caption" style="    margin-top: 30px;">
+                    <h3 class="pull-right" style="margin-top: 2px;">@Model.Price.ToString("c")</h3>
+                    <h3>
+                        <a asp-controller="Home" asp-action="BigSize" asp-route-productId="@Model.ProductId">@Model.Name</a>
+                    </h3>
+
+             </div>
+                <p style="width: 1116px;">@Model.LongDescription</p>
+             <div class="text-right">
+                    <div class="btn-group ">
+                        <p class="button ">
+                            <a class="btn btn-success" id="cartButton" asp-controller="Shoppingcart" asp-action="AddToShoppingCart" asp-route-productid="@Model.ProductId">
+                                Add to cart
+                            </a>
+                        </p>
+                        <a class="btn-group">
+                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Add more products<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a asp-controller="Product" asp-action="List" asp-route-category="Elektronika">Elektronika</a></li>
+                                <li><a asp-controller="Product" asp-action="List" asp-route-category="Şəxsi-Əşyalar">Şəxsi-Əşyalar</a></li>
+                                <li><a asp-controller="Product" asp-action="List" asp-route-category="Dasinmaz-Emlak">Dasinmaz-Emlak</a></li>
+                                <li><a asp-controller="Product" asp-action="List" asp-route-category="Neqliyyat">Neqliyyat</a></li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+                <div class="addToCart text-right" style="margin-left: 1000px;">
+                    
+                </div>
+            </div>
+      </div>
+
+  </div>
+</div>

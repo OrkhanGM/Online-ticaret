@@ -1,0 +1,62 @@
+﻿<div class="container" style="margin-left:350px;">
+
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add New Product</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div asp-validation-summary="All"></div>
+
+            <form role="form" method="post" enctype="multipart/form-data" asp-controller="AddProduct" asp-action="Index">
+                @Html.AntiForgeryToken()
+                <select name="CategoryId" class="form-control" id="productSelect">
+                    <option>Please Select a Product Group</option>
+                    <option value="1">Elektronika</option>
+                    <option value="2">Dasinmaz-Emlak</option>
+                    <option value="3">Neqliyyat</option>
+                    <option value="4">Şəxsi-Əşyalar</option>
+                </select>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="productname" class="loginFormElement" @*asp-for="Name"*@>ProductName</label>
+                    <input class="form-control" id="productname" type="text" name="Name" @*asp-for="Name"*@>
+                </div>
+
+                <div class="form-group">
+                    <label for="productprice" class="loginFormElement">Product Price</label>
+                    <input class="form-control" id="productprice" type="text" name="Price">
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="control-label">Product Image</label>
+
+                    <input class="filestyle" data-icon="false" name="Image" type="file">
+
+                </div>
+
+                <div class="form-group">
+                    <label class="loginformelement" for="productdescription">Product Description</label>
+                    <input id="productdescription" class="form-control input-lg" name="ShortDescription" placeholder="Large" type="text"><div class="container">
+                    </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="loginformelement" for="productdescription">Product LongDescription</label>
+                        <input id="productdescription" class="form-control input-lg" name="LongDescription" placeholder="Large" type="text"><div class="container">
+                        </div>
+
+                        <button style="margin-top: 20px;"type="submit" id="loginSubmit" class="btn btn-success loginFormElement">Add Product</button>
+
+                    </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,31 @@
+﻿
+<div class="container">
+    <div class="row">
+        <h2>@Model.CurrentCategory</h2>
+
+        @{
+            foreach (Product product in Model.Products)
+            {
+
+                @Html.Partial("ProductSummary", product)
+            }
+
+        }
+    </div>
+</div>
+
+<div style="margin-left:475px;margin-bottom:100px;">   
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="0">Previous</a></li>
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="1">1</a></li>
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="2">2</a></li>
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="3">3</a></li>
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="4">4</a></li>
+           
+            <li class="page-item"><a class="page-link" asp-action="List" asp-route-page="5">Next</a></li>
+        </ul>
+    </nav>
+ 
+</div>
+  
